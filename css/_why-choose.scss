@@ -1,0 +1,172 @@
+@import "color-code";
+
+@mixin hover-txt{
+    background: white;
+    color: black;
+    opacity: 0.8;
+}
+
+/*Display flex*/
+.why-choose{
+    background: color(b3);
+    &-content{
+        padding: 5em 2em;
+    }
+    /*part1 is image section on left side | adding video icon on image*/
+    .part1{
+        max-width: 30%;
+        flex: 30%;
+        .why-choose_image{
+            position: relative;
+            text-align: center;
+            cursor: pointer;
+            //padding: 7em;
+            .mdi{
+                position: absolute;
+                bottom: 40%;
+                right: 40%;
+                //width: 400px;
+                font-size: 6rem;
+                color: white;
+                margin-top: 5em;
+            }
+        } 
+        /*adding background image*/
+        .image__1{
+            background-image: url("background/why-choose-1.jpg");
+            background-size: cover;
+            background-color: blue;
+            display: block;
+            max-width: 100%;
+            height: 100%;
+            //border: 100px solid red;
+        }
+        .image__2{
+            background-image: url("background/why-choose-2.jpg");
+            background-size: cover;
+        }
+        .image__3{
+            background-image: url("background/why-choose-3.jpg");
+            background-size: cover;
+        }
+        .image__4{
+            background-image: url("background/why-choose-4.jpg");
+            background-size: cover;
+        }
+        .image__2, .image__3, .image__4{
+            display: none;
+        }
+    }
+
+    /*part2 is text section in right*/
+    .part2{
+        flex: 70%;
+        max-width: 70%;
+        background: white;
+
+        /*part2_a is horizontal list of topics | display flex*/
+        &_a{
+            background: #f7f7f7;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        .why-choose_topic{
+            padding: 1.5em 2em;
+            cursor: pointer;
+        }
+        /*adding color changes on hover over topic divs*/
+        .topic__1{
+            @include hover-txt;
+        }
+
+        /*part2_b is info about topics*/
+        &_b{
+            background: white;
+            padding: 2.5em 4em;
+            .item__2, .item__3, .item__4{
+                display: none;
+            }
+            h3.item_title{
+                color: color(b1);
+                font-size: 1.5rem;
+            }
+            .item_text{
+                line-height: 2rem;
+            }
+        }
+        .topic__2:hover, .topic__3:hover, .topic__4:hover{
+            @include hover-txt;
+        }
+    }
+}
+
+/*reducing padding between part2_a topics list*/
+@media (max-width: 1300px){
+    .why-choose{
+        .part2_a{
+            .why-choose_topic{
+                padding: 1em;
+            }
+        }
+        .part2_b{
+            padding: 0em 2em;
+        }
+    }    
+}
+
+/*hiding part1 image section*/
+@media (max-width: 999px){
+    .why-choose{
+        .part1{
+            display: none;
+        }
+        .part2{
+            max-width: 100%;
+            flex: 100%;
+        }
+    }
+}
+
+/*reducing width of whole section | responsive | reducing padding and topics list font size*/
+@media (max-width: 767px){
+    .why-choose-content{
+        max-width: 500px;
+        margin: auto;
+        padding: 5em 1em;
+    }
+    .part2 .part2_a{
+        font-size: 0.9rem;
+    }
+}
+
+/*wrapping topics list(2 topic in a row) | reducing font size and line height of part2_b*/
+@media (max-width: 479px){
+    .why-choose .part2{ 
+        .part2_a{
+            flex-wrap: wrap;
+            .why-choose_topic{
+                flex: 40%;
+                max-width: 50%;
+            }
+        }
+        &_b{
+            padding: 0 0.5em;
+            h3.item_title{
+                font-size: 1rem;
+            }
+            .item_text{
+                line-height: 1.5rem;
+            }
+        }
+    }
+}
+
+/*wrapping topic list(1 topic in a row)*/
+@media (max-width: 336px){
+    .part2 .part2_a{
+        .why-choose_topic{
+            flex: 100%;
+            max-width: 100%;
+        }
+    }
+}

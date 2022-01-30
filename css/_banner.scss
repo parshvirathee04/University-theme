@@ -1,0 +1,28 @@
+
+/*Display flex*/
+.banner{
+    background: #1b2434;
+    &-content{
+        justify-content: space-evenly;
+        align-items: center;
+        padding: 3em 2em;
+    }
+    &-item{
+        flex: 25%;
+        max-width: 25%;
+    }
+}
+
+/*changing flex direction to column | reduce padding */
+@media (max-width: 767px){
+    .banner{
+        &-content{
+            flex-direction: column;
+            padding: 3em 0.5em;
+        }
+        &-item{
+            flex: 100%;
+            max-width: 100%;
+        }
+    }
+}

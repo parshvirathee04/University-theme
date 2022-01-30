@@ -1,0 +1,96 @@
+@import "color-code";
+
+/*Display flex (all 4 in 1 row)| space evenly | box shadow | padding and margin | image size fixed*/
+.uni-grad{
+    // box-shadow: 0px 0px 10px grey;
+    margin: 0 1em;
+    &-content{
+        justify-content: space-evenly;
+    }
+    &-item{
+        flex: 25%;
+        max-width: 25%;
+        display: flex;
+        padding: 1em 2em;
+    }
+    img{
+        max-width: unset;
+        height: unset;
+    }
+    &-content{
+        padding: 1em 1.5em;
+        box-shadow: 0px 0px 10px grey;
+
+    }
+    h3.heading{
+        color: color(b1);
+        margin: 0;
+    }
+    .sub-item{
+        padding: 1em;
+    }
+    p{
+        margin: 0;
+        padding-top: 0.3em;
+        font-weight: 500;
+        opacity: 0.8;
+    }
+}
+
+/* wrapping flex items (2 in each row)*/
+@media (max-width: 1000px)
+{
+    .uni-grad{
+        &-content{
+            flex-wrap: wrap;
+        }
+        &-item{
+            flex: 40%;
+            max-width: 50%;
+        }
+    }
+}
+
+/*parent's flex direction to column (1 in each row) | making image size resizable with screen*/
+@media (max-width: 767px){
+    .uni-grad{
+        margin: 0 1em;
+        &-content{
+            flex-direction: column;
+            max-width: 500px;
+            margin: auto;
+            padding: 1em 0;
+        }
+        &-item{
+            flex: 100%;
+            max-width: 100%;
+        }
+        img{
+            max-width: 100%;
+            height: auto;
+        }
+    }
+}
+
+/*flex direction to column for image and text in parent items*/
+@media (max-width: 300px){
+    .uni-grad{
+        &-item{
+            padding: 1em;
+            flex-direction: column;
+        }
+        .sub-item{
+            padding: 0.2em;
+        }
+    }
+}
+
+/*resizing heading size*/
+@media (max-width: 200px){
+    .uni-grad{
+        h3.heading{
+            font-size: 1.1rem;
+        }
+    }
+}
+

@@ -1,0 +1,6 @@
+$blue-green :(b1: #1c2e51, c1:#8c8c8c, c2: #d4e1f8, c3:#182847, b2:#3db166, b3: #efefef, b4:
+#96a2b8);
+
+@function color($code){
+    @return map-get($blue-green, $code);
+}

@@ -1,0 +1,85 @@
+@import "color-code";
+
+/*display flex | assigning equal space to items | background-images | padding & font-properties*/
+.admission{
+    margin: 0 1em 5em 1em;
+    &-item{
+        flex: 50%;
+        max-width: 50%;
+        padding: 5em;
+    }
+    &_image{
+        background-image: url("background/admission-1.jpg");
+        background-size: cover;
+        background-position: center;
+    }
+    &_text{
+        background-image: url("background/admission-2.jpg");
+        background-size: cover;
+        background-position: center;
+        .main-text{
+            color: color(b2);
+            font-size: 1.2rem;
+        }
+        .sub-text{
+            color: color(c2);
+            font-size: 1.1rem;
+        }
+    }
+    h3.heading{
+        font-size: 1.9rem;
+        margin: 0;
+        padding-bottom: 0.3em;
+    }
+    p{
+        margin: 0;
+        padding-bottom: 1em;
+    }
+}
+
+/*adjusting section margin*/
+@media (max-width: 1300px){
+    .admission{
+        margin: 0 0 5em 0;
+    }
+}
+
+/*making flex direction as column*/
+@media (max-width: 767px){
+    .admission{
+        margin: 0 1em 5em 1em;
+        &-content{
+            flex-direction: column;
+            max-width: 500px;
+            margin: auto;
+        }
+        &-item{
+            flex: 100%;
+            max-width: 100%;
+        }
+    }
+}
+
+/*adjusting padding of child elements*/
+@media (max-width: 365px){
+    .admission{
+        &-item{
+            padding: 5em 2em;
+        }
+    }
+}
+
+/*changing padding and font size*/
+@media (max-width: 200px){
+    .admission{
+        h3.heading{
+            font-size: 1.1rem;
+        }
+        &-item{
+            padding: 5em 1em;
+        }
+        button{
+            padding: 1em;
+        }
+    }
+}

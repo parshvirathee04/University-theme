@@ -1,0 +1,332 @@
+@import "color-code";
+
+/*adding hover effects on image*/
+@mixin img-hover{
+    position: relative;
+    overflow: hidden;
+    img{
+        transition: transform .2s ease;
+    }
+    &:hover{
+        img{
+            transform: scale(1.1);
+        }
+        a:before{
+            background: linear-gradient(rgba(0, 0, 0, 0.925),rgba(0, 0, 0, 0.925));
+            content: "";
+            display: block;
+            height: 99%;
+            opacity: 0.5;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: 1;
+        }
+    }
+}
+
+/*news, quick links, tweet and apply section | display grid(rows-2, cols-3)*/
+.news-links{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 3fr 1fr;
+    grid-template-areas: 
+    "news news links"
+    "tweet tweet apply";
+    h3.heading{
+        font-size: 1.5rem;
+    }
+
+    /*news section | display flex*/
+    .news{
+        grid-area: news;
+        margin: 4em 2.5em;
+        line-height: 1.3rem;
+        &-content{
+            margin-top: 2em;
+        }
+
+        /*giving equal space to 2 childs of news div*/
+        &-item{
+            flex: 50%;
+            max-width: 50%;
+            padding-right: 2.5em;
+        }
+
+        /*adding horizontal line after news heading using flex*/
+        h3.heading{
+            color: color(b1);
+            display: flex;
+            align-items: center;
+            margin: 0.3em 0;
+            span{
+                flex: 1;
+                border-top: 3px solid black;
+                opacity: 0.6;
+                margin-left: 1em;
+            }
+        }
+
+        /*font properties for various date and topic links*/
+        .read a, .date a, .tags a{
+            font-size: 0.85rem;
+            color: color(c1);
+            font-weight: 600;
+        }
+        .read a{
+            color: color(b2);
+        }
+        .date a:after{
+            content: " /";
+        }
+        
+        img{
+            border-radius: 5px;
+        }
+        .news-info a{
+            font-weight: bold;
+            font-size: 1rem;
+            color: black;
+            opacity: 0.8;
+            &:hover{
+                color: color(b2);
+            }
+        }
+        /*leftmost news subsection*/
+        .item__1{
+            .item_text{
+                padding: 2em 0 0 0;
+                .news-info a{
+                    font-size: 1.2rem;
+                }
+            }
+            .item_image {
+                @include img-hover;
+            }
+        }
+
+        /*news subsection towards right with 3 more vertical childs*/
+        .item__2{
+            /*using display flex on each child(ni-sub)*/
+            .ni-sub{
+                padding-bottom: 2em;                
+            }
+            .s-item_text{
+                padding: 0 0 0 1.5em;
+            }
+            .s-item_image{
+                @include img-hover;
+            }
+            .news-info{
+                margin: 0.2em 0;
+            }
+        }
+    }
+
+    /*quick links section | padding and background properties */
+    .links{
+        grid-area: links;
+        background-image: url("background/links-bg.jpg");
+        background-size: cover;
+        &-content{
+            padding: 4em 6em;
+        }
+
+        /*removing default bullets from list*/
+        ul{
+            list-style: none;
+            padding: 0;
+        }
+        li{
+            //padding: 0.5em 0;
+            margin: 0;
+            padding-top: 0.6em;
+        }
+
+        /*font properties | adding horizontal line after every li item*/
+        li a{
+            color: color(b2);
+            font-size: 1.05rem;
+            font-weight: 500;
+            &:after{
+                content: "";
+                border-bottom: 1px solid #53607a;
+                padding: 0.4em;
+                display: block;
+                width: 100%;
+            }
+            &:hover{
+                opacity: 0.8;
+            }
+        }
+        .mdi{
+            font-size: 2rem;
+        }
+        h3.heading{
+            font-size: 2rem;
+        }
+    }
+
+    /*tweet section | display flex*/
+    .tweet{
+        grid-area: tweet;
+        background: color(b3);
+        color: #163269;
+        &_text, a{
+            font-size: 0.9rem;
+        }
+        &-content{
+            padding: 3em 2em 3em 3em;
+            align-items: center;
+        }
+        &-item{
+            padding-right: 1em;
+        }
+        &_icon, &_arrows{
+            .mdi{
+                font-size: 1.6rem;
+            }
+        }
+        a, .time{
+            color: color(c1);
+            padding-left: 0.5em;
+        }
+        a{
+            font-weight: 500;
+            &:hover{
+                color: color(b2);
+            }
+        }
+    }
+
+    /* apply section | display flex*/
+    .apply{
+        grid-area: apply;
+        background: color(b2);
+        &-content{
+            align-items: center;
+            margin: 3em 2em 3em 3em;
+        }
+        &-item{
+            padding-right: 0.5em;
+        }
+    }
+}
+
+/*changing grid (rows-5, cols-1) | reducing width of whole section - responsive*/
+@media (max-width: 767px){
+    .news-links{
+        max-width: 500px;
+        margin: auto;
+        padding: 0 1em;
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.75fr 0.65fr 0.9fr 0.25fr 0.2fr;
+        grid-template-areas: 
+        "news"
+        "news"
+        "links"
+        "tweet"
+        "apply";
+
+        /*changing flex direction to column for 2 news items*/
+        .news{
+            margin-bottom: 0;
+            grid-area: news;
+            &-content{
+                flex-direction: column;
+            }
+            &-item{
+                max-width: 100%;
+                flex: 100%;
+                margin-bottom: 2em;
+            }
+            .item__2{
+                .ni-sub{
+                    padding-bottom: 1em;
+                }
+            }
+        }
+        .links{
+            grid-area: links;
+        }
+
+        /*removing left-right arrows in tweet section*/
+        .tweet{
+            grid-area: tweet;
+            &_arrows{
+                display: none;
+            }
+        }
+        .apply{
+            grid-area: apply;
+        }
+    }
+}
+
+/*changing heading and links font sizes*/
+@media (max-width: 400px){
+    .news-links{
+        h3.heading{
+            font-size: 1.2rem !important;
+        }
+        .news-info a, li a{
+            font-size: 0.9rem !important;
+        }
+        .read a, .date a, .tags a{
+            font-size: 0.8rem !important;
+        }
+        .news{
+            margin: 0;
+            .item__2{
+                .s-item_text{
+                    font-size: 0.9rem;
+                }
+            }
+        }
+        .links{
+            &-content{
+                padding: 1em;
+            }
+            .mdi{
+                font-size: 1.2rem;
+            }
+        }
+        /*wrapping content in tweet and apply section*/
+        .tweet{
+            &-content{
+                flex-wrap: wrap;
+            }
+        }
+        .apply{
+            &-content{
+                flex-wrap: wrap;
+            }
+        }
+    }
+}
+
+/*changing flex direction to column in news item__2 subsection (ni-sub) | padding, margin adjust*/
+@media (max-width: 267px){
+    .news-links{
+        .news{
+            .item__2 .ni-sub{
+                flex-direction: column;
+                .s-item_text{
+                    padding-left: unset;
+                    padding-top: 0.5em;
+                }
+            }
+        }
+        .tweet{
+            &-content{
+                padding: 0.5em;
+            }
+        }
+        .apply{
+            &-content{
+                padding: 0.5em;
+                margin: 0;
+            }
+        }
+    }
+}

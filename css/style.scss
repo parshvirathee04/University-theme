@@ -1,0 +1,105 @@
+@import "header";
+@import "slider";
+@import "uni-grad";
+@import "admission";
+@import "about";
+@import "learn-more";
+@import "video";
+@import "news-links";
+@import "why-choose";
+@import "ug-pg";
+@import "info";
+@import "courses";
+@import "banner";
+@import "footer";
+@import "font-family";
+@import "color-code";
+
+
+@import url($font1);
+
+*{
+    font-family: $font1-name;
+}
+
+body{
+    margin: 0;
+    color: color(c1);
+    font-family: $font1-name;
+    //background: color(b1);
+}
+
+
+h1,h2,h3{
+    color: white;
+}
+
+
+
+.home{
+    .sec{
+        //padding: 2em 1em;
+        margin: auto;
+    }
+}
+
+
+
+.mdi{
+    font-size: 1rem;
+    //padding: 0.5em;
+}
+
+
+
+.flex{
+    display: flex;
+}
+
+
+
+.grid{
+    display: grid;
+}
+
+
+
+.button, input[type="submit"]{
+    background: color(b2);
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    padding: 1.2em 2em;
+    border: none;
+    margin: 1em 0;
+    cursor: pointer;
+    transition: 0.2s 0.1s;
+}
+
+
+.button:hover{
+    background: rgb(65, 64, 64);
+}
+
+
+
+a{
+    text-decoration: none;
+    color: color(c3);
+    font-size: 1.1rem;
+}
+
+
+
+img{
+    max-width: 100%;
+    height: auto;
+}
+
+
+/*decreasing all p elements font size*/
+@media (max-width: 200px){
+    p{
+        font-size: 0.9rem !important;
+    }
+}

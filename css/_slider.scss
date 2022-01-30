@@ -1,0 +1,177 @@
+@import "color-code";
+
+/*slider | position relative*/
+.slider{
+    position: relative;
+    color: white;
+    background: color(b1);
+
+
+    /*slider image*/
+    &_image{
+        position: relative;
+    }
+
+
+    /*slider text and heading | position absloute*/
+    &_text{
+        position: absolute;
+        bottom: 30%;
+        left: 0;
+        padding-left: 2em;
+    }
+
+
+    p{
+        font-size: 2rem;
+        //margin: 0;
+        font-weight: 300;
+        transition: all 0.5s;
+    }
+
+
+    h2.heading{
+        background: rgba(24, 36, 59, 0.9);
+        font-size: 5rem;
+        padding: 0 0.3em;
+        margin: 0;
+        font-weight: 500;
+        transition: all 0.5s;
+    }
+
+
+    img{
+        max-height: 800px;
+        width: 100%;
+    }
+
+    /*button on hover increases left border*/
+    button{
+        margin-top: 4em;
+        background: white;
+        color: rgb(65, 64, 64);
+        border-left: 4px solid color(b2);
+        &:hover{
+            border-left: 6px solid color(b2);
+            color: blue;
+            background: white;
+        }
+        transition: all 0.5s;
+    }
+}
+
+
+/*decreasing heading and text font size*/
+@media(max-width: 1300px){
+    .slider{
+        h2.heading{
+            font-size: 4rem;
+        }
+        p{
+            font-size: 1.75rem;
+        }
+    }
+}
+
+/*button width and height unset*/
+@media(max-width: 1023px){
+    .slider{
+        h2.heading{
+            font-size: 3.5rem;
+        }
+        p{
+            font-size: 1.5rem;
+        }
+        button{
+            padding: 0.6em 1.2em;
+            width: unset;
+            height: unset;
+        }
+    }
+}
+
+
+@media(max-width: 900px){
+    .slider{
+        h2.heading{
+            font-size: 3rem;
+        }
+        p{
+            font-size: 1.25rem;
+        }
+    }
+}
+
+
+/*decreasing image element width with margin auto | changing absolute positioning of text element*/
+@media(max-width: 767px){
+    .slider{ 
+        &_text{
+            left: 15%;
+            bottom: 15%;
+        }
+        h2.heading{
+            font-size: 2.25rem;
+        }
+        p{
+            font-size: 0.75rem;
+        }
+        &_image{
+            margin: auto;
+            max-width:500px;
+        }
+    }
+}
+
+
+/*changing absolute positioning | p->display none | decreasing button top margin*/
+@media(max-width: 479px){
+    .slider{
+        &_text{
+            left: 5%;
+        }
+        h2.heading{
+            font-size: 2rem;
+        }
+        p{
+            display: none;
+        }
+        button{
+            padding: 0.4em 0.9em;
+            margin-top: 1.5em;
+        }
+    }
+}
+
+
+@media(max-width: 384px){
+    .slider{
+        &_text{
+            left: 0;
+        }
+        h2.heading{
+            font-size: 1.5rem;
+        }
+    }
+}
+
+
+
+@media(max-width: 300px){
+    .slider .slider_text{
+        bottom: 10%;
+        h2.heading{
+            font-size: 1rem;
+        }
+    }
+}
+
+/*heading -> display none*/
+@media (max-width: 207px){
+    .slider .slider_text{
+        padding-left: 1em;
+        h2.heading{
+            display: none;
+        }
+    }
+}

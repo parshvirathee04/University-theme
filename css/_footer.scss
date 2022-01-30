@@ -1,0 +1,116 @@
+@import "color-code";
+
+@mixin green-line{
+    content: "";
+    border-bottom: 2px solid color(b2);
+    display: block;
+}
+
+.footer{
+    background: black;
+    opacity: 0.94;
+    font-weight: 300;
+    &-content{
+        background: black;
+        opacity: 0.94;
+        justify-content: space-evenly;
+        padding: 3em 1.5em;
+    }
+    &-item{
+        flex: 25%;
+        max-width: 25%;
+        padding: 0 1.5em;
+    }
+    h3.heading{
+        font-size: 1.2rem;
+        font-weight: 600;
+        padding: 0;
+        &:after{
+            @include green-line;
+        }
+    }
+    ul{
+        list-style: none;
+        padding: 0;
+        //margin: 0;
+    }
+    li{
+        padding: 0.3em 0;
+    }
+    li a{
+        color: color(c1);
+        font-size: 1rem;
+        &:hover{
+            color: white;
+        }
+    }
+    .contact{
+        padding-top: 2em;
+        //margin-bottom: 1.5em;
+        &-text a{
+            color: white;
+            font-size: 1rem;
+        }
+        &-no{
+            color: white;
+        }
+        &:after{
+            @include green-line;
+        }
+    }
+    .additional{
+        background: #202020;
+        justify-content: space-between;
+        align-items: center;
+        .addi-item{
+            padding: 1em;
+        }
+        .social-media{
+            .mdi{
+                font-size: 1.5rem;
+                padding: 0 0.3em;
+                color: color(b2);
+            }
+        }
+    }
+}
+
+@media (max-width: 767px){
+    .footer{
+        &-content{
+            flex-direction: column;
+            max-width: 500px;
+            margin: auto !important;
+        }
+        &-item{
+            flex: 100%;
+            max-width: 100%;
+            padding-bottom: 2em;
+            padding-left: 0;
+            padding-right: 0;
+        }
+        .contact{
+            padding-bottom: 3.5em;
+        }
+        .additional{
+            flex-direction: column;
+            .addi-item{
+                padding: 0;
+            }
+        }
+    }
+}
+
+@media(max-width: 200px){
+    .footer{
+        h3.heading{
+            font-size: 1rem;
+        }
+        ul li a{
+            font-size: 0.9rem;
+        }
+        .contact-text a{
+            font-size: 0.9rem;
+        }
+    }
+}

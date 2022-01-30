@@ -1,0 +1,64 @@
+@import "color-code";
+
+.ug-pg{
+    /*adding padding and font size | display flex*/
+    padding: 3em 2em;
+    text-align: center;
+    font-size: 0.9rem;
+    &-item{
+        padding: 1em;
+        h3.ug-pg_title{
+            font-size: 1.2rem;
+        }
+        .ug-pg_txt{
+            padding: 0 3.8em;
+        }
+        .item-inner{
+            padding: 3em 0;
+        }
+    }
+    color: color(c2);
+
+    /*adding backgrounds to items*/
+    &-item__1{
+        background-image: url("background/ug-pg-1.jpg");
+        background-size: cover;
+    }
+    &-item__2{
+        background: color(b1);
+    }
+    &-item__3{
+        background-image: url("background/ug-pg-2.jpg");
+        background-size: cover;
+    }
+}
+
+/*making left and right padding 0*/
+@media (max-width:1300px){
+    .ug-pg{
+        padding: 3em 0;
+    }
+
+}
+
+/*making flex direction as column | auto margin | padding adjust */
+@media (max-width: 767px){
+    .ug-pg{
+        flex-direction: column;
+        max-width: 500px;
+        padding: 3em 1em;
+        //margin: auto;
+    }
+}
+
+/*reducing text padding & heading size*/
+@media (max-width: 200px){
+    .ug-pg{
+        .ug-pg_txt{
+            padding: 0 1em;
+        }
+        h3.ug-pg_title{
+            font-size: 1rem;
+        }
+    }
+}

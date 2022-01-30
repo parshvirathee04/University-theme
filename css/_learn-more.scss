@@ -1,0 +1,55 @@
+@import "color-code";
+
+/*display flex | space evenly*/
+.learn-more{
+    background: color(b1);
+    color: white;
+    h3.heading{
+        font-size: 1.3rem;
+    }
+    &-content{
+        justify-content: space-evenly;
+        padding: 3em 1.3em;
+    }
+    &-item{
+        flex: 25%;
+        max-width: 25%;
+        padding: 2em 1.3em;
+    }
+    &_text{
+        p{
+            color: color(c2);
+            font-weight: 400;
+        }
+    }
+    &-link a{
+        font-size: 0.9rem;
+        color: color(b2);
+    }
+}
+
+/*making flex direction as column | max-width and padding adjustments*/
+@media (max-width: 767px){
+    .learn-more{
+        &-content{
+            flex-direction: column;
+            max-width: 500px;
+            margin: auto;
+            padding: 3em 1em;
+        }
+        &-item{
+            flex: 100%;
+            max-width: 100%;
+            padding: 2em 0;
+        }
+    }
+}
+
+/*reducing font size of headings*/
+@media (max-width: 200px){
+    .learn-more{
+        h3.heading{
+            font-size: 1.1rem;
+        }
+    }
+}

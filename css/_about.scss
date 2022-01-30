@@ -1,0 +1,83 @@
+@import "color-code";
+
+
+/*background properties | display flex*/
+.about{
+    background: url("background/about-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    &-content{
+        padding: 6em 2em;
+    }
+    &-item{
+        padding: 2em 1em;
+    }
+
+    /*font-properties | margin and padding*/
+    &_logo{
+        flex: 30%;
+        max-width: 30%;
+        h3.heading{
+            font-size: 2rem;
+            color: color(b2);
+            font-weight: 600;
+            margin: 0;
+            padding-top: 0.5em;
+        }
+    }
+    &_text{
+        flex: 70%;
+        max-width: 70%;
+    }
+    .text__1{
+        color: color(c2);
+        font-size: 1.45rem;
+        font-weight: 400;
+    }
+    .text__2{
+        color: white;
+        font-size: 1.2rem;
+        font-weight: 500;
+    }
+    p{
+        margin: 0;
+        padding-bottom: 2em;
+    }
+    .read-more a{
+        color: white;
+        font-size: 0.95rem;
+        font-weight: 800;
+        .mdi{
+            padding: 0 0.2em;
+        }
+    }
+}
+
+/*making flex direction as column | reducing width of content over backgorund*/
+@media (max-width: 767px){
+    .about{
+        &-content{
+            flex-direction: column;
+            max-width: 500px;
+            margin: auto;
+            padding: 6em 1em;
+        }
+        &-item{
+            flex: 100%;
+            max-width: 100%;
+            padding: 1em 1em;
+        }
+    }
+}
+
+/*adjusting padding and font size*/
+@media (max-width: 200px){
+    .about{
+        &-item{
+            padding: 1em 0;
+        }
+        h3.heading{
+            font-size: 1.2rem;
+        }
+    }
+}

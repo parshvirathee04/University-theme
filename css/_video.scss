@@ -1,0 +1,48 @@
+.video{
+
+    /*adding color and background properties*/
+    text-align: center;
+    color: white;
+    background-image: url("background/video-bg.jpg");
+    background-size: cover;
+    background-position: center;
+
+    /*padding,width & margin to content*/
+    &-content{
+        margin: auto;
+        max-width: 650px;
+        padding: 10em 2em;
+    }
+    
+    /*assigning font size to various text*/
+    &-icon .mdi{
+        font-size: 6rem;
+    }
+    &_title{
+        font-size: 2.5rem;
+        margin: unset;
+    }
+    &_text{
+        font-size: 1.2rem;
+    }
+}
+
+/*reducing width of content*/
+@media (max-width: 767px){
+    .video-content{
+        max-width: 450px;
+    }
+}
+
+/*reducing padding and font size of content*/
+@media (max-width: 300px){
+    .video-content{
+        padding: 5em 1em;
+    }
+    .video-icon .mdi{
+        font-size: 3rem;
+    }
+    .video_title{
+        font-size: 1.6rem;
+    }
+}

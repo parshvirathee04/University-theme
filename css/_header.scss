@@ -1,0 +1,381 @@
+@import "color-code";
+
+
+@mixin green-line{
+    content: '';
+    width: 100%;
+    height: 5px;
+    position: absolute;
+    background: color(b2);
+    bottom: -130%;
+    right: 0;
+    transition: all 0.5s;
+}
+
+
+
+
+
+    /*header 1 | display flex | space between*/
+.header-1{
+    padding: 0.5em 1em;
+    background: color(b1);
+    color: color(b4);
+    &-content{
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /*making rightmost child item of header 1 as display flex*/
+    .item__2{
+        align-items: center;
+    }
+
+
+    /*for both the child items*/
+    .sub-item_1, .sub-item_2{
+        font-size: 0.9rem;
+        padding: 0 0.5em;
+
+
+        /*changing color to white on hover over link*/
+        a{
+            color: color(b4);
+            font-size: 0.9rem;
+            &:hover{
+                color: white;
+            }
+        }
+        button{
+            margin: 0;
+        }
+    }
+
+
+    .mail{
+        padding-right: 0.8em;
+    }
+
+
+    .mdi{
+        padding-right: 0 !important;
+    }
+}
+
+
+
+
+
+
+/*header 2 | display flex | space between | background white*/
+.header-2{
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: white;
+    &-content{
+        justify-content: space-between;
+        padding: 1em 0;
+        position: relative;
+        margin: 0 2em;
+    }
+
+    /*for logo on left iside*/
+    &-logo{
+        flex: 25%;
+        max-width: 25%;
+    }
+
+
+    /*for whole menu on right side*/
+    &-menu{
+        flex: 65%;
+        max-width: 65%;
+        align-items: center;
+
+
+        /*menu icon | display none initially*/
+        .menu-icon{
+            display: none;
+            border: none;
+            cursor: pointer;
+        }
+
+
+
+        .menu-item{
+            padding: 0 0.5em;
+        }
+
+        ul{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+
+
+        ul.main-menu{
+
+            /*for the main menu li items*/
+            li.main-item{
+                position: relative;
+                display: inline-block;
+                padding-left: 2em;
+                a.a-active{
+                    color: color(b2);
+                }
+            }
+
+            /*keeping academics (.item__3) position as static*/
+            .item__3{
+                position: static !important;
+            }
+            
+
+            /*giving link color to main menu li items*/
+            li a.main-link{
+                font-size: 1rem;
+                color: #163269;
+                font-weight: 500;
+                position: relative;
+
+                
+                /*for green line below each main menu item on hover*/
+                &:after{
+                    @include green-line;
+                    transform: scaleX(0);
+                    transform-origin: left;
+                
+                }
+
+                &:hover:after{
+                    //right: 0;
+                    transform: scaleX(1);
+                    transform-origin: right;                 
+                }
+
+                &:hover{
+                    color: color(b2);
+                }
+
+
+            }
+            
+        }
+
+        .mdi{
+            //padding: 0 0.5em;
+            font-size: 1.1rem;
+        }
+
+    }
+
+
+    /*for all submenus under main-menus | position absolute wrt their corresponding main-menu li items 
+    | visibility hidden*/
+    .sub-menu{
+        visibility: hidden;
+        position: absolute;
+        z-index: 1;
+        top: 54px;
+        width: 200px;
+        padding: 1em;
+        box-shadow: 0px 0px 10px grey;
+        //max-width: 100%;
+        //left: 0;
+        background: rgb(240, 237, 237);
+        
+
+
+
+        /*submenu li & a items*/
+        li{
+            padding-bottom: 0.5em;
+        }
+        li a{
+            color: #585858;
+            font-size: 0.9rem;
+            //margin: 2em 5em 2em 1em;
+            //padding: 1em;
+            //width: 100%;
+            //margin: 2em;
+            &:hover{
+                color: color(b1);
+            }
+        }
+    }
+
+
+
+
+
+    /*sub-menu for academics | postion absolute wrt whole header 2 | display flex*/
+    .academics-menu{
+        width: 100% !important;
+        top: 83px;
+        right: 0;
+        padding: unset !important;
+
+
+
+        .sub-academics{
+            flex: 25%;
+            max-width: 25%;
+            border-left: 1px solid lightgrey;
+            padding: 2em;
+            p{
+                font-size: 0.9rem;
+                font-weight: 550;
+            }
+        }
+
+
+        /*heading of each academic sub-menu item*/
+        h3.heading{
+            color: color(c3);
+            opacity: 0.9;
+            font-weight: 600;
+        }
+        img{
+            padding-top: 1em;
+        }
+
+
+
+        /*background properties for last academic sub-menu item*/
+        .academics__4{
+            background-image: url("background/header-2-academic-bg.jpg");
+            background-size: cover;
+            background-position: center;
+        }
+    }
+
+
+
+
+    /*making all sub-menus visible on hover over their respective main menus*/
+    #home:hover ~.home-menu, #pages:hover ~ .pages-menu , #academics:hover ~ .academics-menu, #admissions:hover ~ .admissions-menu, #courses:hover ~ .courses-menu{
+        visibility: visible;
+    }
+    
+
+
+    /*for search icon*/
+    .menu-2{
+        &:hover{
+            cursor: pointer;
+        }
+    }
+}
+
+
+
+
+
+/* for header 2 | making main-menu visible only on hover over menu icon*/
+@media (max-width: 1300px){
+    .header-2{
+        &-menu{
+            justify-content: flex-end;
+        }
+        /*main-menu | display none*/
+        .main{
+            display: none;
+        }
+
+        /*menu-icon | visible*/
+        .menu-icon{
+            display: block;
+        }
+
+
+
+        /*.menu-1 contains .main and .menu-icon| .menu on hover -> .main visible (position absolute)*/
+        .menu-1:hover{
+            .main{
+                display: block;
+                width: 200px;
+                position: absolute;
+                background: rgb(240, 237, 237);
+                z-index: 2;
+                right: 4%;
+                box-shadow: 0px 0px 10px grey;
+
+
+
+                li.main-item{
+                    text-align: center;
+                    display: block;
+                    padding: 0.5em 0;
+                    a.main-link{
+                        width: 100%;
+                    }
+                }
+
+
+                li a.main-link:after{
+                    bottom: 0;
+                }
+            }
+
+
+
+            .sub-menu{
+                top: 0;
+                right: 100%;
+            }
+            .academics-menu{
+                flex-wrap: wrap;
+            }
+        }
+    }
+}
+
+
+
+
+/*header 1 | flex direction to column*/
+@media (max-width: 791px){
+    .header-1{
+        &-content{
+            flex-direction: column;
+            justify-content: space-evenly;
+        }
+    }
+}
+
+
+/*header-1 | flex-wrap | item__1's child given full width | item__2's child given half of width (2 in each row)*/
+@media (max-width: 435px){
+    .header-1{
+        &-item{
+            flex-wrap: wrap;
+        }
+        .item__1 .s-item{
+            flex: 100%;
+            max-width: 100%;
+        }
+        .item__2 .sub-item_2{
+            flex: 40%;
+            max-width: 50%;
+        }
+    }
+}
+
+
+/*header 1 | item__2's child given full width | 1 in each row*/
+@media (max-width: 277px){
+    .header-1{
+        &-item{
+            padding: 0.5em 0.5em;
+        }
+        .item__2 .sub-item_2{
+            flex: 100%;
+            max-width: 100%;
+        }
+        button{
+            padding: 1em;
+        }
+    }
+}
